@@ -63,7 +63,7 @@ export function AudioRecorder() {
     const usuario = currentUser.email; // Usuario autenticado
   
     try {
-      const response = await fetch(`http://localhost:8001/process_audio?usuario=${encodeURIComponent(usuario)}`, {
+      const response = await fetch(`https://crossfit-backend-v2.fly.dev/process_audio?usuario=${encodeURIComponent(usuario)}`, {
         method: 'POST',
         body: formData,
         headers: {

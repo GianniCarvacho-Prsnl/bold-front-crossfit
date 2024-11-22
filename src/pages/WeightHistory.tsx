@@ -79,7 +79,6 @@ export function WeightHistory() {
             ))}
           </select>
         </div>
-
         {isLoading ? (
           <div className="text-center py-8">
             <p className={`text-lg ${theme === 'light' ? 'text-blue-600' : 'text-blue-400'}`}>
@@ -103,35 +102,23 @@ export function WeightHistory() {
             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
               <thead>
                 <tr>
-                  <th className={`px-4 py-3 text-left text-xs font-medium uppercase tracking-wider ${
-                    theme === 'light' ? 'text-gray-600' : 'text-gray-300'
-                  }`}>
+                  <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-black">
                     Fecha
                   </th>
-                  <th className={`px-4 py-3 text-left text-xs font-medium uppercase tracking-wider ${
-                    theme === 'light' ? 'text-gray-600' : 'text-gray-300'
-                  }`}>
+                  <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-black">
                     Hora
                   </th>
-                  <th className={`px-4 py-3 text-left text-xs font-medium uppercase tracking-wider ${
-                    theme === 'light' ? 'text-gray-600' : 'text-gray-300'
-                  }`}>
-                    Peso Discos (lb)
-                  </th>
-                  <th className={`px-4 py-3 text-left text-xs font-medium uppercase tracking-wider ${
-                    theme === 'light' ? 'text-gray-600' : 'text-gray-300'
-                  }`}>
-                    Repeticiones
-                  </th>
-                  <th className={`px-4 py-3 text-left text-xs font-medium uppercase tracking-wider ${
-                    theme === 'light' ? 'text-gray-600' : 'text-gray-300'
-                  }`}>
+                  <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-black">
                     RM (lb)
                   </th>
-                  <th className={`px-4 py-3 text-left text-xs font-medium uppercase tracking-wider ${
-                    theme === 'light' ? 'text-gray-600' : 'text-gray-300'
-                  }`}>
+                  <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-black">
                     RM (kg)
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-black">
+                    Peso Discos (lb)
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-black">
+                    Repeticiones
                   </th>
                 </tr>
               </thead>
@@ -147,17 +134,17 @@ export function WeightHistory() {
                     <td className="px-4 py-4 whitespace-nowrap text-sm">
                       {record.hora}
                     </td>
+                    <td className="px-4 py-4 whitespace-nowrap text-sm font-bold">
+                      {record.rm_lb}
+                    </td>
+                    <td className="px-4 py-4 whitespace-nowrap text-sm">
+                      {record.rm_kg}
+                    </td>
                     <td className="px-4 py-4 whitespace-nowrap text-sm">
                       {record.peso_discos_lb}
                     </td>
                     <td className="px-4 py-4 whitespace-nowrap text-sm">
                       {record.nrepeticiones}
-                    </td>
-                    <td className="px-4 py-4 whitespace-nowrap text-sm">
-                      {record.rm_lb}
-                    </td>
-                    <td className="px-4 py-4 whitespace-nowrap text-sm">
-                      {record.rm_kg}
                     </td>
                   </tr>
                 ))}

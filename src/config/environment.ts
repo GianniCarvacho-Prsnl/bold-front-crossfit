@@ -11,7 +11,7 @@ const configs: Record<Environment, Config> = {
     apiTimeout: 10000
   },
   production: {
-    apiUrl: 'http://localhost:8001/weights',
+    apiUrl: 'https://crossfit-backend-v2.fly.dev/weights',
     apiTimeout: 15000
   }
 };
