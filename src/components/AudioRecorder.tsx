@@ -144,7 +144,7 @@ export function AudioRecorder() {
         {isRecording ? (
           <p>Grabando... Haz clic en el botón para detener.</p>
         ) : (
-          <p>Haz clic en el botón del micrófono para comenzar a grabar</p>
+          <p>COmponent-Haz clic en el botón del micrófono para comenzar a grabar</p>
         )}
       </div>
     </div>

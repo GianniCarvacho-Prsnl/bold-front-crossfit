@@ -49,7 +49,7 @@ function AudioRecorder() {
     formData.append('audio', audioBlob, 'recording.webm');
 
     try {
-      const response = await fetch('https://crossfit-backend.fly.dev/process_audio', {
+      const response = await fetch('http://localhost:8001/process_audio', {
         method: 'POST',
         body: formData,
       });
@@ -112,7 +112,7 @@ function AudioRecorder() {
             {isRecording ? (
               <p>Recording in progress... Click the button to stop.</p>
             ) : (
-              <p>Click the microphone button to start recording</p>
+              <p>PAGES-Click the microphone button to start recording</p>
             )}
           </div>
         </div>

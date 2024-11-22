@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { getWeightRecords } from '../services/api';
 import { useTheme } from '../contexts/ThemeContext';
@@ -28,7 +28,7 @@ export function WeightHistory() {
       if (!selectedExercise || !currentUser?.email) {
         return;
       }
-
+  
       setIsLoading(true);
       try {
         console.log('Consultando registros para:', {
@@ -37,7 +37,12 @@ export function WeightHistory() {
         });
         
         const data = await getWeightRecords(currentUser.email, selectedExercise);
-        setRecords(Array.isArray(data) ? data : []);
+        const sortedData = Array.isArray(data) ? data.sort((a, b) => {
+          const dateA = new Date(`${a.fecha}T${a.hora}`).getTime();
+          const dateB = new Date(`${b.fecha}T${b.hora}`).getTime();
+          return dateB - dateA;
+        }) : [];
+        setRecords(sortedData);
       } catch (error) {
         console.error('Error al obtener registros:', error);
         toast.error('Error al cargar el historial');
@@ -46,7 +51,7 @@ export function WeightHistory() {
         setIsLoading(false);
       }
     };
-
+  
     fetchRecords();
   }, [selectedExercise, currentUser]);
 
